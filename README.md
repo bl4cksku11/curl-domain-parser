@@ -14,13 +14,19 @@ parse_curl_domains_tlds.py
 
 # Usage examples:
   ### 1) read command from stdin and use a local tlds.txt
+  ```python
   echo "curl 'https://login.example.com' -H 'Host: api.exampletechnologies.net'" \
     | python3 parse_curl_domains_tlds.py --tld-file tlds.txt
+  ```
 
   ### 2) fetch latest IANA TLDs and save locally, then parse
+  ```python
   python3 parse_curl_domains_tlds.py --fetch-tlds --save-tlds tlds.txt \
     --cmd "curl https://cb.example.co.uk/path -H 'Host: example.exampletechnologies.io'"
+  ```
 
   ### 3) produce suggested wildcard patterns
+  ```python
   echo "curl https://login.example.com" \
     | python3 parse_curl_domains_tlds.py --tld-file tlds.txt --wildcards
+  ```
